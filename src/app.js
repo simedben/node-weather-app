@@ -10,7 +10,7 @@ const geocode = require("./utils/geocode");
 const publicDirPath = path.join(__dirname, "../public");
 const viewPath = path.join(__dirname, "../templates/views");
 const partialspath = path.join(__dirname, "../templates/partials");
-console.log("this is views path", viewPath);
+// console.log("this is views path", viewPath);
 
 // Setup handlebars engine and views location
 
@@ -51,7 +51,11 @@ app.get("/weather", (req, res) => {
   } else {
     geocode(
       req.query.address,
-      (error, { latitude, longitude, location } = {}) => {
+      (error, {
+        latitude,
+        longitude,
+        location
+      } = {}) => {
         if (error) {
           console.log("Error:", error);
         } else {
